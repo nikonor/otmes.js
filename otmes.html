@@ -1,0 +1,59 @@
+<html lang="ru">
+<head>
+	<script language="JavaScript" src="https://yandex.st/jquery/1.7.1/jquery.js"></script>  
+	<script language="JavaScript" src="otmes.js"></script>  
+<script type="text/javascript">
+
+// Создаем объект
+
+$(document).ready(function(){
+
+	// alert(m.name);
+	m = new otmes(1 ,{'errorDiv':'divError1'});
+
+});
+
+</script>	
+<style type="text/css">
+.dsDiv {
+    border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:10px;
+    padding:10px;
+    border-style:dotted;
+    border-width:1px;
+    
+
+    font-size: 100%;
+    font-family: arial, verdana, sans-serif;;
+}
+</style>
+</head>
+<body>
+	<div id="divDebug" class="dsDiv" align=left valign="top" style="color:blue; display:none;">
+	</div><br>
+
+	<div id="divError1" class="dsDiv" align=left valign="top" style="color:red;">
+		1<br>
+	</div><br>
+
+	<div id="divError" class="dsDiv" align=left valign="top" style="color:red;">
+		0<br>
+	</div><br>
+
+	<div id="divMessage" class="dsDiv" align=left valign="top" style="color:green; display:none1;">
+	</div><br>
+<form>
+	<input type=text id="mes">
+	<input type=button value="T" onClick="m.__debug('qwe');	">
+	<input type=button value="E" onCLick="m.e($('#mes').val());">
+	<input type=button value="E1T" onCLick="m.e($('#mes').val(),1);">
+	<input type=button value="D" onCLick="m.d($('#mes').val());">
+	<input type=button value="M" onCLick="m.m($('#mes').val());">
+	<input type=button value="C" onCLick="m.clear();">
+	<input type=button value="C1" onCLick="m.clear('m');">
+	<input type=button value="BS" onCLick="m.beforesave('m');">
+</form>
+</body>
+</heml>

@@ -54,9 +54,38 @@ function otmes(spec_status, spec_data){
 	this.__work = function (tdiv,str,notadd){
 		if (notadd){
 			$('#'+tdiv).html('');
-
 		}
-		$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+str);
+
+		if (typeof(str) == 'object'){
+			// if (str.length){
+			// 	alert('array');
+			// }else{
+			// 	alert('dict');
+			// }
+			var type=(str.length?"a":"d");
+			$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+(type=='a'?'[':'{')+this.__subwork(str,0)+(type=='a'?']':'}')+'<br>');
+		}else{
+			$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+str);
+		}
+
+	}
+
+	this.__subwork = function (str,level){
+		out = '';
+		if (str){
+			for (var k in str){
+				if (typeof(str[k]) == 'object'){
+					var type=(str.length?"a":"d");
+					out = out + k +':'+(type=='a'?'[':'{')+'<br>'+this.__subwork(str[k],(level+1))+(type=='a'?']':'}');
+				}else{
+					for (var i=0;i<level;i++){
+						out = out + '&nbsp;&nbsp;&nbsp;';
+					}
+					out = out + k+':'+str[k]+'<br>';
+				}
+			}
+		}
+		return out;
 	}
 
 	this.e = function(str,notadd){

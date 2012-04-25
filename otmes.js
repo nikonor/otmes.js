@@ -122,3 +122,58 @@ function otmes(spec_status, spec_data){
 	}
 
 }
+
+// function lfields(f1,f2,func){
+
+// }
+
+/***********
+пока только функция, лень делать объект
+используем так:
+1) добавляем к полю, которое на что-то влияет, параметр linked="sync-<id-зависимого поля>"
+2) в .ready вешаем через live обработку 
+	Вот пример:
+	$('input[linked^=sync]').live('change',{func:my_func,show:''},linked_fields);
+	Параметры: 
+		func - функция, которая сработает после изменения поля, если ее нет, то значение просто перенесется.
+		show - если истина, то будет еще и alert
+3) если нужно, то пишем функцию, которая принимает два параметра (<текущее поле>, <поле, на которое влияют>)
+Подробности в примере
+
+***********/
+
+function linked_fields(e){
+	var func = e.data.func;
+	var f2id = $(this).attr('linked').replace(/^sync-/,"");
+
+	var show = (e.data.show?e.data.show:'');
+	var f1 = $(this).get(0);
+	var f2 = $('#'+f2id).get(0);
+
+	//  Готовим показ, если он нужен
+    if (show){
+        if (f1.id){
+            f1name="c ID=\""+f1.id+"\"";
+        }else if (f1.name){
+            f1name="c NAME=\""+f1.id+"\"";
+        }else{
+            f1name = '---';
+        }
+
+        if (f2.id){
+            f2name="c ID=\""+f2.id+"\"";
+        }else if (f2.name){
+            f2name="c NAME=\""+f2.id+"\"";
+        }else{
+            f2name='---';
+        }
+        alert('Поле '+f1name+' связано с полем '+f2name+'');
+    }
+
+    // Основная работа
+    if (func){
+    	func(f1,f2);
+    }else{
+    	$(f2).val($(f1).val()); 
+	}
+}

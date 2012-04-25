@@ -6,10 +6,23 @@
 
 // Создаем объект
 
+var my_func = function(f1,f2){
+	// ставим в f2 значение из f1
+	var new_val = $(f1).val();
+	if(parseInt(new_val) == new_val){
+		//Число
+		new_val = new_val * 10;
+	}else{
+		new_val = new_val.toUpperCase();
+	}
+	$(f2).val(new_val);
+}
+
 $(document).ready(function(){
 
 	// alert(m.name);
 	m = new otmes(1 ,{'errorDiv':'divError1'});
+	$('input[linked^=sync]').live('change',{func:my_func,show:''},linked_fields);
 
 });
 
@@ -56,7 +69,14 @@ $(document).ready(function(){
 	<input type=button value="BS" onCLick="m.beforesave('m');">
 	<input type=button value="DictTest" onCLick="m.d({'one':1,'two':2,'three':{'one':11,'two':22}});">
 	<input type=button value="SimpleArrayTest" onCLick="m.d([1,2,3]);">
-	<input type=button value="n-sizeArrayTest" onCLick="m.d([1,2,3,[11,22,33]]);">
+	<input type=button value="n-sizeArrayTest" onCLick="m.d([1,2,3,[11,22,33]]);"><br>
+
+Два поля должны быть в разные стороны
+<input size=10 id="f1" name="ff1" linked="sync-f2">	= <input size=10 id="f2" name="ff2" linked="sync-f1"><br>
+
+Два поля должны быть в одну сторону
+<input size=10 id="f1" name="ff1" linked="sync-f2">	= <input size=10 id="f2" name="ff2"><br>
+
 </form>
 </body>
 </heml>

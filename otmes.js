@@ -53,7 +53,7 @@ function otmes(spec_status, spec_data){
 
 	this.__work = function (tdiv,str,notadd){
 		if (notadd){
-			$('#'+tdiv).html('');
+			$('#'+tdiv).empty();
 		}
 
 		if (typeof(str) == 'object'){

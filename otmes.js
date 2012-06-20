@@ -52,6 +52,8 @@ function otmes(spec_status, spec_data){
 	}
 
 	this.__work = function (tdiv,str,notadd){
+		var top = $('#' + tdiv).position().top;
+		$(window).scrollTop( top );
 		if (notadd){
 			$('#'+tdiv).empty();
 		}

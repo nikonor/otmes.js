@@ -121,6 +121,8 @@ function otmes(spec_status, spec_data){
 	}
 
 	this.beforesave = function(){
+		$('#'+this.data.errorDiv).hide();
+		$('#'+this.data.messagesDiv).hide();
 		this.clear('e');
 		this.clear('m');
 	}

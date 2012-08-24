@@ -21,7 +21,7 @@ var my_func = function(f1,f2){
 $(document).ready(function(){
 
 	// alert(m.name);
-	m = new otmes(1 ,{'errorDiv':'divError1'});
+	m = new otmes('1' ,{'errorDiv':'divError1'});
 	$('input[linked^=sync]').live('change',{func:my_func,show:''},linked_fields);
 
 });

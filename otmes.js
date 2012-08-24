@@ -41,15 +41,8 @@ function otmes(spec_status, spec_data){
 	};
 
 
-	if (spec_data){
-		for (var k in spec_data){
-			this.data[k] = spec_data[k]
-		}
-	}
 
-	if (this.status){
-		$('#'+this.data.debugDiv).show();
-	}
+
 
 	this.__work = function (tdiv,str,notadd){
 		var top = $('#' + tdiv).position().top;
@@ -105,6 +98,7 @@ function otmes(spec_status, spec_data){
 	}
 
 	this.clear = function (list){
+		alert('clear');
 		var slist = {'e':this.data.errorDiv,
 					'd':this.data.debugDiv,
 					'm':this.data.messagesDiv};
@@ -126,6 +120,22 @@ function otmes(spec_status, spec_data){
 		this.clear('e');
 		this.clear('m');
 	}
+
+	if (spec_data){
+		for (var k in spec_data){
+			this.data[k] = spec_data[k]
+		}
+	}
+
+	if (this.status){
+		$('#'+this.data.debugDiv).show();
+		$($(document.createElement('input'))
+				.prop({'type':'button','id':'btnDebugClear'})
+				.bind('click',{id: this.data.debugDiv},function(e){$('#'+e.data.id).html('');})
+				.val('Clear Debug'))
+		.insertBefore('#'+this.data.debugDiv);
+	}
+
 
 }
 

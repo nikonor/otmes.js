@@ -98,7 +98,6 @@ function otmes(spec_status, spec_data){
 	}
 
 	this.clear = function (list){
-		alert('clear');
 		var slist = {'e':this.data.errorDiv,
 					'd':this.data.debugDiv,
 					'm':this.data.messagesDiv};

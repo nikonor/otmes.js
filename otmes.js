@@ -10,8 +10,7 @@ otmes - класс для вывода информации (ошибок, со�
 					если не пусто, то показываем
 				- второй параметр - JSON словарь для указания куда выводить ту или иную информацию, использовать
 				  этот парамерт имеет смысл, если div-ы нестандартные
-				  	{errorDiv: 'divError', messagesDiv: 'divMessage', debugDiv: 'divDebug'}
-					errorDiv - id  div-а для ошибок
+					errorDiv - id  div-а для ошибок,
 					messagesDiv - id  div-а для сообщений
 					debugDiv - id  div-а для отладки
 	вызовы
@@ -61,7 +60,13 @@ function otmes(spec_status, spec_data){
 			var type=(str.length?"a":"d");
 			$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+(type=='a'?'[':'{')+this.__subwork(str,0)+(type=='a'?']':'}')+'<br>');
 		}else{
-			$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+str);
+			var tmp = $('#'+tdiv).html();
+			if (tmp.length){
+				$('#'+tdiv).html($('#'+tdiv).html()+'<br>'+str);
+			} else {
+				$('#'+tdiv).html($('#'+tdiv).html()+str);
+			}
+			
 		}
 
 	}

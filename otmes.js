@@ -92,6 +92,9 @@ function otmes(spec_status, spec_data){
 	this.e = function(str,notadd){
 		$('#'+this.data.errorDiv).show();
 		this.__work(this.data.errorDiv,str,notadd);
+		$('html,body').animate({
+	        scrollTop: $("#"+this.data.errorDiv).offset().top - parseInt($('body').css('padding-top'))}, 'fast');
+		}
 	}
 
 	this.d = function(str,notadd){

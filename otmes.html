@@ -1,7 +1,7 @@
 <html lang="ru">
 <head>
 	<script language="JavaScript" src="https://yandex.st/jquery/1.7.1/jquery.js"></script>  
-	<script language="JavaScript" src="https://raw.github.com/nikonor/otmes.js/master/otmes.js"></script>  
+	<script language="JavaScript" src="otmes.js"></script>  
 <script type="text/javascript">
 
 // Создаем объект
@@ -59,7 +59,7 @@ $(document).ready(function(){
 	</div><br>
 <form>
 	<input type=text id="mes">
-	<input type=button value="T" onClick="m.__debug('qwe');	">
+	<input type=button value="T" onClick="m.d('qwe');	">
 	<input type=button value="E" onCLick="m.e($('#mes').val());">
 	<input type=button value="E1T" onCLick="m.e($('#mes').val(),1);">
 	<input type=button value="D" onCLick="m.d($('#mes').val());">
@@ -79,6 +79,7 @@ $(document).ready(function(){
 
 <br><br><br><br><br>ниже есть кнопка<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <input type=button value="D" onCLick="m.d($('#mes').val());">
+<input type=button value="E" onCLick="m.e($('#mes').val());">
 
 </form>
 </body>

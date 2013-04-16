@@ -45,8 +45,8 @@ function otmes(spec_status, spec_data){
 
 
 	this.__work = function (tdiv,str,notadd){
-		var top = $('#' + tdiv).position().top;
-		$(window).scrollTop( top );
+		// var top = $('#' + tdiv).position().top;
+		// $(window).scrollTop( top );
 		if (notadd){
 			$('#'+tdiv).empty();
 		}
@@ -93,8 +93,8 @@ function otmes(spec_status, spec_data){
 		$('#'+this.data.errorDiv).show();
 		this.__work(this.data.errorDiv,str,notadd);
 		$('html,body').animate({
-	        scrollTop: $("#"+this.data.errorDiv).offset().top - parseInt($('body').css('padding-top')), 'fast');
-		});
+	        scrollTop: $("#"+this.data.errorDiv).offset().top - parseInt($('body').css('padding-top'))
+	    }, 'fast');
 	}
 
 	this.d = function(str,notadd){
